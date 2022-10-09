@@ -98,7 +98,7 @@ $$
 
 >4）第三项 $\underset {k}{min}L_r(p-r,k)$ 表示 $p−r$ 沿 $r$ 路径上的最小匹配代价。
 
-方向包含：上，下，左，右，左上，左下，右上，右下
+方向包含：上，下，左，右，左上，左下，右上，右下 总共8个方向
 
 $$
 \begin{matrix}
@@ -129,16 +129,22 @@ $$
 
 ### 视差计算
 由聚合后的代价求解视差时，一般采用“赢家通吃算法”，即取最小代价值的index作为该像素的视差值。
-$(height,width,max\_disparity-min\_disparity,8)->(height,widht,max\_disparity-min\_disparity)->(height,width)$
+ $(height,width,max\\_disparity-min\\_disparity,8)->(height,widht,max\\_disparity-min\\_disparity)->(height,width)$
+
 即可分别得到左视差和右视差：
+
 ![disp_left](/output/demo/disp_left.png)
+
 ![disp_right](/output/demo/disp_right.png)
+
 ### 左右一致性检验
 左右一致性检验是基于视差的唯一性限制，基本原理是从交换左图像和右图像。 此时，如果再次重新开始立体匹配，则获得新的左图像(原始右图像)的视差图。 此时，比较左右图像同一像素点的视差，观察视差是否一致，如果一致则满足一致检查，如果不一致则标记该点，具体做法为：
-根据左右视差图。对于左图中的一个点$p$及其视差值$d_l$，由视差的公式$d = x_l - x_r$可得点p对应在右图中的位置为$p-d$，然后从右图中索引出$p-d$的视差$d_r$。若$d_l$和$d_r$的差值大于某个阈值$threshold$，则认为$p$为遮挡点。
+根据左右视差图。对于左图中的一个点 $p$ 及其视差值 $d_l$ ，由视差的公式 $d = x_l - x_r$ 可得点p对应在右图中的位置为 $p-d$ ，然后从右图中索引出 $p-d$ 的视差 $d_r$ 。若 $d_l$ 和 $d_r$ 的差值大于某个阈值 $threshold$ ，则认为 $p$ 为遮挡点。
 
 左右一致性检验结果如下：
+
 ![disp_checked](/output/demo/disp_checked.png)
+
 ### 空洞填充
 在上述左右一致性检查之后，会出现一些没有视差值的像素区域，对于这些没有视差的像素，需要利用周围的视差进行填充。空洞视差填充的方法有很多，这里提供一种思路：
 1）对于某个没有视差值的像素，首先观察其8邻域范围内的视差值。
@@ -146,10 +152,14 @@ $(height,width,max\_disparity-min\_disparity,8)->(height,widht,max\_disparity-mi
 3）若某方向上的视差也是无效视差，则沿着该方向继续寻找有效视差，直至找到有效视差或超出图像范围。
 
 例如，对于如下8x6的图像:
+
 ![fill_hole](/assets/fill_hole.png)
+
 其用于填充的中间绿色像素的视差值为 [33,20,20,33,32,22,60] 这7个值的均值。
 空洞填充结果如下：
+
 ![disp_fillholed](/output/demo/disp_fillholed.png)
 
 ### 中值滤波
+
 ![disp_medianBlured](/output/demo/disp_medianBlured.png)
