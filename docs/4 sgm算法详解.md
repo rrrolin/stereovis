@@ -52,8 +52,9 @@ $$
 
 同理，假定视差为 $d$ ,在左图中寻找右图对应的像素点 $p$ 时的规则如下：
 
-![right_cost](/assets/right_cost.png)
-
+<div align=center>
+<img src="../assets/right_cost.png"> 
+</div>
 
 
 $$
@@ -67,7 +68,9 @@ $$
 
 得到右图的代价矩阵，对其进行可视化如下图所示：
 
-![cost_volume_right](../output/demo/cost_volume_right.png)
+<div align=center>
+<img src="../output/demo/cost_volume_right.png"> 
+</div>
 
 ### 代价聚合
 
@@ -137,9 +140,8 @@ $$
 
 即可分别得到左视差和右视差：
 
-![disp_left](/output/demo/disp_left.png)
+<img src="../output/demo/disp_left.png"><img src="../output/demo/disp_right.png"/>
 
-![disp_right](/output/demo/disp_right.png)
 
 ### 左右一致性检验
 左右一致性检验是基于视差的唯一性限制，基本原理是从交换左图像和右图像。 此时，如果再次重新开始立体匹配，则获得新的左图像(原始右图像)的视差图。 此时，比较左右图像同一像素点的视差，观察视差是否一致，如果一致则满足一致检查，如果不一致则标记该点，具体做法为：
