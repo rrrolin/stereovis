@@ -31,7 +31,9 @@ $$
 
 假定视差为 $d$ ,在右图中寻找左图对应的像素点 $p$ 时的规则如下：
 
-![left_cost](../assets/left_cost.png)
+<div align=center>
+<img src="../assets/left_cost.png"> 
+</div>
 
 
 $$
