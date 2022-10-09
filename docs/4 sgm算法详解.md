@@ -54,7 +54,7 @@ $$
 $$
 p^{right}=
 \begin{cases}
-    p^{left}+d & p^{left}+d<width\\
+    p^{left}+d & (p^{left}+d)<width\\
     width-max\\_disparity+(p^{left}-(width-d))=d+p^{left}-max\\_disparity & p^{left}+d\geq width
 \end{cases}
 $$
