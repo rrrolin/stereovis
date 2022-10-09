@@ -46,7 +46,9 @@ $$
 
 得到左图的代价矩阵，对其进行可视化如下图所示：
 
-![cost_volume_left](../output/demo/cost_volume_left.png)
+<div align=center>
+<img src="../output/demo/cost_volume_left.png"> 
+</div>
 
 同理，假定视差为 $d$ ,在左图中寻找右图对应的像素点 $p$ 时的规则如下：
 
