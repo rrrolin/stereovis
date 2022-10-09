@@ -140,8 +140,9 @@ $$
 
 即可分别得到左视差和右视差：
 
+<div align=center>
 <img src="../output/demo/disp_left.png"><img src="../output/demo/disp_right.png"/>
-
+</div>
 
 ### 左右一致性检验
 左右一致性检验是基于视差的唯一性限制，基本原理是从交换左图像和右图像。 此时，如果再次重新开始立体匹配，则获得新的左图像(原始右图像)的视差图。 此时，比较左右图像同一像素点的视差，观察视差是否一致，如果一致则满足一致检查，如果不一致则标记该点，具体做法为：
@@ -149,7 +150,9 @@ $$
 
 左右一致性检验结果如下：
 
-![disp_checked](/output/demo/disp_checked.png)
+<div align=center>
+<img src="../output/demo/disp_checked.png">
+</div>
 
 ### 空洞填充
 在上述左右一致性检查之后，会出现一些没有视差值的像素区域，对于这些没有视差的像素，需要利用周围的视差进行填充。空洞视差填充的方法有很多，这里提供一种思路：
@@ -159,13 +162,21 @@ $$
 
 例如，对于如下8x6的图像:
 
-![fill_hole](/assets/fill_hole.png)
+<div align=center>
+<img src="../assets/fill_hole.png">
+</div>
 
 其用于填充的中间绿色像素的视差值为 [33,20,20,33,32,22,60] 这7个值的均值。
 空洞填充结果如下：
 
-![disp_fillholed](/output/demo/disp_fillholed.png)
+<div align=center>
+<img src="../output/demo/disp_fillholed.png">
+</div>
+
 
 ### 中值滤波
 
-![disp_medianBlured](/output/demo/disp_medianBlured.png)
+<div align=center>
+<img src="../output/demo/disp_medianBlured.png">
+</div>
+
