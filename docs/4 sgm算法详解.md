@@ -165,7 +165,7 @@ $$
 例如，对于如下8x6的图像:
 
 <div align=center>
-<img src="../assets/fill_hole.png" width="100">
+<img src="../assets/fill_hole.png" width="300">
 </div>
 
 其用于填充的中间绿色像素的视差值为 [33,20,20,33,32,22,60] 这7个值的均值。
