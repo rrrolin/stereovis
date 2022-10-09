@@ -117,7 +117,9 @@ $$
 
 例如：当向右聚合时，对于 $shape$ 为 $(height,width,max\\_disparity-min\\_disparity)$ 的 $cost\\_volume$，需要遍历高度 $height$，对于每一个高度，得到 $shape$ 为 $(width,max\\_disparity-min\\_disparity)$ 的路径 $cost\\_volume$ 矩阵，再执行上述 $L_r(p,d)$ 计算。为了便于描述，这里假设 $w=450,min\\_disparity=10,max\\_disparity=64$ ，如下图所示：
 
-![w_disp](../assets/w_disp.png)
+<div align=center>
+<img src="../assets/w_disp.png">
+</div>
 
 对于像素p：
 
@@ -163,7 +165,7 @@ $$
 例如，对于如下8x6的图像:
 
 <div align=center>
-<img src="../assets/fill_hole.png">
+<img src="../assets/fill_hole.png" width="100">
 </div>
 
 其用于填充的中间绿色像素的视差值为 [33,20,20,33,32,22,60] 这7个值的均值。
