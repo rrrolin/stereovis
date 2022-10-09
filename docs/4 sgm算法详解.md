@@ -25,7 +25,7 @@ $$
 
 ### 代价计算
 
-在计算代价矩阵时，需要先假设一个视差值$d$，然后求左图中的某个像素 $p$ 对应右图中 $p-d$ 的 $Hamming距离$ 。因此，需要先设定最小视差 $min\_disparity$ 和最大视差 $max\_disparity$ ，然后从视差 $min\_disparity$ 遍历计算到 $max\_disparity$ 。则对于 $shape$ 为 $(width,height)$ 的图像，可以得到 $(height,width,max\_disparity-min\_disparity)$ 的代价矩阵。
+在计算代价矩阵时，需要先假设一个视差值$d$，然后求左图中的某个像素 $p$ 对应右图中 $p-d$ 的 $Hamming距离$ 。因此，需要先设定最小视差 $min_\disparity$ 和最大视差 $max\_disparity$ ，然后从视差 $min\_disparity$ 遍历计算到 $max\_disparity$ 。则对于 $shape$ 为 $(width,height)$ 的图像，可以得到 $(height,width,max\_disparity-min\_disparity)$ 的代价矩阵。
 
 其中，$Hamming距离$ 指的是两个 $census$ 序列之间的相似度。度量方式为两个字符串对应位置的不同字符的个数。如 $110111$ 和 $101001$ 之间的 $Hamming距离$ 为 $4$ 。
 
