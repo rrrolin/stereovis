@@ -38,7 +38,7 @@ $$
 p^{left}=
 \begin{cases}
     p^{right}-d & p^{right}>d\\
-    max\_disparity-d+p^{right} & p^{right}\leq d
+    max\\_disparity-d+p^{right} & p^{right}\leq d
 \end{cases}
 $$
 
@@ -55,7 +55,7 @@ $$
 p^{right}=
 \begin{cases}
     p^{left}+d & p^{left}+d<width\\
-    width-max\_disparity+(p^{left}-(width-d))=d+p^{left}-max\_disparity & p^{left}+d \geq width
+    width-max\\_disparity+(p^{left}-(width-d))=d+p^{left}-max\\_disparity & p^{left}+d\geq width
 \end{cases}
 $$
 
