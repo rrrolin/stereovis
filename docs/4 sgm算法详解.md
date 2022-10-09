@@ -43,9 +43,14 @@ p^{left}=
 $$
 
 得到左图的代价矩阵，对其进行可视化如下图所示：
-![cost_volume_left](/output/demo/cost_volume_left.png)
-同理，假定视差为$d$,在左图中寻找右图对应的像素点$p$时的规则如下：
+
+![cost_volume_left](../output/demo/cost_volume_left.png)
+
+同理，假定视差为 $d$ ,在左图中寻找右图对应的像素点 $p$ 时的规则如下：
+
 ![right_cost](/assets/right_cost.png)
+
+
 $$
 p^{right}=
 \begin{cases}
@@ -53,8 +58,11 @@ p^{right}=
     width-max\_disparity+(p^{left}-(width-d))=d+p^{left}-max\_disparity & p^{left}+d \geq width
 \end{cases}
 $$
+
 得到右图的代价矩阵，对其进行可视化如下图所示：
-![cost_volume_right](/output/demo/cost_volume_right.png)
+
+![cost_volume_right](../output/demo/cost_volume_right.png)
+
 ### 代价聚合
 
 代价聚合的根本目的是让代价值能够准确的反映像素之间的相关性。上一步匹配代价的计算往往只会考虑局部信息，通过两个像素邻域内一定大小的窗口内的像素信息来计算代价值，这很容易受到影像噪声的影响，而且当影像处于弱纹理或重复纹理区域，这个代价值极有可能无法准确的反映像素之间的相关性，直接表现就是真实同名点的代价值非最小。
