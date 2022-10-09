@@ -99,22 +99,33 @@ $$
 >4）第三项 $\underset {k}{min}L_r(p-r,k)$ 表示 $p−r$ 沿 $r$ 路径上的最小匹配代价。
 
 方向包含：上，下，左，右，左上，左下，右上，右下
+
 $$
 \begin{matrix}
-    ↘&↓&↙\\→&p&←\\↗&↑&↖
+    ↘&↓&↙\\
+    →&p&←\\
+    ↗&↑&↖
 \end{matrix}
 $$
-例如：当向右聚合时，对于 $shape$ 为 $(height,width,max\_disparity-min\_disparity)$ 的 $cost\_volume$，需要遍历高度 $height$，对于每一个高度，得到 $shape$ 为 $(width,max\_disparity-min\_disparity)$ 的路径 $cost\_volume$ 矩阵，再执行上述 $L_r(p,d)$ 计算。为了便于描述，这里假设 $w=450,min\_disparity=10,max\_disparity=64$，如下图所示：
+
+例如：当向右聚合时，对于 $shape$ 为 $(height,width,max\\_disparity-min\\_disparity)$ 的 $cost\\_volume$，需要遍历高度 $height$，对于每一个高度，得到 $shape$ 为 $(width,max\\_disparity-min\\_disparity)$ 的路径 $cost\\_volume$ 矩阵，再执行上述 $L_r(p,d)$ 计算。为了便于描述，这里假设 $w=450,min\\_disparity=10,max\\_disparity=64$ ，如下图所示：
+
 ![w_disp](../assets/w_disp.png)
+
 对于像素p：
->第一项 $C(p,d)$ 为在 $p$ 处的64个视差的$cost_volume$，$shape$为(64,1)
 
->第三项$\underset {k}{min}L_r(p-r,k)$ 为 $p-r$ 处的64个视差的$cost_volume$的最小值，$shape$为(1,1)
+>第一项 $C(p,d)$ 为在 $p$ 处的64个视差的 $cost_volume$ ， $shape$ 为 $(64,1)$
 
->第二项$min[]$的计算为：
->>1）对于 $p$ 在0视差(红点)位置，相对于 $p-r$ 的各个视差的 不同视差差值下的匹配代价，对于该元素，其惩罚系数分别为 $0,P_1,P_2,P_2,P_2...$。并取最小值。
->>2）对于 $p$ 在1视差(蓝点)位置，相对于 $p-r$ 的各个视差的 不同视差差值下的匹配代价，对于该元素，其惩罚系数分别为 $P_1,0,P_1,P_2,P_2...$。并取最小值。
->>3）依次类推...，就得到了$shape$为(64,1)的第二项。
+>第三项 $\underset {k}{min}L_r(p-r,k)$ 为 $p-r$ 处的 $64$ 个视差的 $cost_volume$ 的最小值， $shape$ 为 $(1,1)$
+
+>第二项 $min[]$ 的计算为：
+
+>>1）对于 $p$ 在 $0$ 视差(红点)位置，相对于 $p-r$ 的各个视差的 不同视差差值下的匹配代价，对于该元素，其惩罚系数分别为 $0,P_1,P_2,P_2,P_2...$ 。并取最小值。
+
+>>2）对于 $p$ 在 $1$ 视差(蓝点)位置，相对于 $p-r$ 的各个视差的 不同视差差值下的匹配代价，对于该元素，其惩罚系数分别为 $P_1,0,P_1,P_2,P_2...$ 。并取最小值。
+
+>>3）依次类推...，就得到了 $shape$ 为 $(64,1)$ 的第二项。
+
 
 ### 视差计算
 由聚合后的代价求解视差时，一般采用“赢家通吃算法”，即取最小代价值的index作为该像素的视差值。
