@@ -51,6 +51,7 @@ $$
 ![right_cost](/assets/right_cost.png)
 
 
+
 $$
 p^{right}=
 \begin{cases}
@@ -58,6 +59,7 @@ p^{right}=
     width-max\\_disparity+(p^{left}-(width-d))=d+p^{left}-max\\_disparity & p^{left}+d\geq width
 \end{cases}
 $$
+
 
 得到右图的代价矩阵，对其进行可视化如下图所示：
 
